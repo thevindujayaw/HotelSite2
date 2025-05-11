@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Haven Hotel</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif; /* Default body font */
+        }
+        
+        body {
+            color: #333;
+            line-height: 1.6;
+            background-color: #f8f0ff; /* Overall page background */
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 60px 0;
+            position: relative;
+        }
+        
+        section:nth-child(odd) {
+            background: linear-gradient(to right, #f8f0ff, #fff0f5);
+        }
+        
+        section:nth-child(even) {
+            background: linear-gradient(to right, #fff0f5, #f0f8ff);
+        }
+        
+        h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #8e44ad;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        h2:after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, #e74c3c, #8e44ad);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+        
+        h3 { /* Default H3, will be overridden in footer and other specific cases */
+            font-size: 26px;
+            margin-bottom: 15px;
+            color: #8e44ad;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(to right, #e74c3c, #8e44ad);
+            color: white;
+            padding: 12px 28px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: none;
+        }
+        
+        .btn:hover {
+            background: linear-gradient(to right, #8e44ad, #e74c3c);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,240,255,0.95));
+            box-shadow: 0 4px 20px rgba(142, 68, 173, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(5px);
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            background: linear-gradient(to right, #e74c3c, #8e44ad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+            position: relative;
+            padding-left: 15px;
+        }
+        
+        .logo:before {
+            content: "✦";
+            position: absolute;
+            left: -5px;
+            top: 0;
+            color: #e74c3c;
+            font-size: 24px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+            position: relative;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #5a287d;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 15px;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            padding: 8px 0;
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(to right, #e74c3c, #8e44ad);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #e74c3c;
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(195, 14, 162, 0.7)), url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8aG90ZWx8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+            height: 85vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: black;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(231, 76, 60, 0.3), rgba(142, 68, 173, 0));
+            z-index: 1;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: fadeIn 1s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif; /* Using the new elegant font */
+            font-weight: 700; /* Using a bold weight */
+            font-size: 60px; /* Increased font size for impact */
+            line-height: 1.3; /* Adjusted line height for better readability */
+            margin-bottom: 25px; /* Slightly more space below */
+            
+            /* --- Text Color Changed to Black for Visibility --- */
+            color: #000000; /* Solid black color */
+            /* Removed background gradient and text-fill properties */
+            
+            display: inline-block; /* Keeps it from taking full width if not desired */
+            letter-spacing: 1.5px; /* Adds a touch of sophistication */
+            
+            /* Adjusted text shadow for black text - can be tweaked further */
+            text-shadow: 
+                /* Removing the dark shadow as it won't be visible on black text */
+                /* 1px 1px 3px rgba(0, 0, 0, 0.25), */ 
+                0 0 10px rgba(255, 255, 255, 0.3), /* Subtle white glow for separation */
+                0 0 3px rgba(150, 150, 150, 0.2); /* Very subtle softer outline */
+
+            position: relative; /* Needed for the decorative underline */
+            padding-bottom: 15px; /* Space for the underline */
+            text-align: center; /* Ensure it stays centered */
+        }
+
+        /* The .hero h1::after rule for the underline remains the same, e.g.: */
+        .hero h1::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 60%; 
+            height: 3px;
+            background: linear-gradient(to right, #e74c3c, #8e44ad, #fbc2eb); 
+            border-radius: 2px;
+            opacity: 0.85;
+        }
+
+        /* Decorative underline for the h1 */
+        .hero h1::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 60%; /* Adjust width as desired */
+            height: 3px; /* Thickness of the line */
+            background: linear-gradient(to right, #e74c3c, #8e44ad, #fbc2eb); /* Using theme colors */
+            border-radius: 2px;
+            opacity: 0.85; /* Slight transparency */
+            /* Optional: add a subtle animation to the underline if you like */
+            /* animation: drawUnderline 1.5s ease-out 0.5s backwards; */
+        }
+
+        /* Optional: Keyframes for underline animation (if you uncomment the animation line above) */
+        /* @keyframes drawUnderline {
+            from {
+                width: 0%;
+                opacity: 0;
+            }
+            to {
+                width: 60%;
+                opacity: 0.85;
+            }
+        } */
+        
+        .hero p {
+            font-size: 22px;
+            margin-bottom: 35px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            color: #f8e0ff;
+            font-weight: 300;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .about-img {
+            flex: 1;
+        }
+        
+        .about-img img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        /* Rooms Section */
+        .rooms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 20px;
+        }
+        
+        .room-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(142, 68, 173, 0.15);
+            transition: all 0.4s ease;
+            position: relative;
+            border: 1px solid rgba(142, 68, 173, 0.1);
+        }
+        
+        .room-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(142, 68, 173, 0.25);
+        }
+        
+        .room-card:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 0;
+            background: linear-gradient(to bottom, #e74c3c, #8e44ad);
+            transition: height 0.5s ease;
+        }
+        
+        .room-card:hover:before {
+            height: 100%;
+        }
+        
+        .room-img {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .room-img:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 30%;
+            background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+        }
+        
+        .room-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+        
+        .room-card:hover .room-img img {
+            transform: scale(1.15);
+        }
+        
+        .room-info {
+            padding: 25px;
+            position: relative;
+        }
+        
+        .room-price {
+            font-size: 24px;
+            font-weight: bold;
+            background: linear-gradient(to right, #e74c3c, #8e44ad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            margin-bottom: 15px;
+            display: inline-block;
+            position: relative;
+        }
+        
+        .room-price:after {
+            content: "per night";
+            font-size: 14px;
+            color: #888; /* This color needs to be applied directly */
+            position: absolute;
+            right: -70px; /* Adjust as needed */
+            bottom: 5px;   /* Adjust as needed */
+            font-weight: normal;
+            /* -webkit-text-fill-color: #888; Standard color property is enough */
+        }
+        
+        /* Amenities Section */
+        .amenities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 20px;
+        }
+        
+        .amenity-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(142, 68, 173, 0.1);
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            border: 1px solid rgba(231, 76, 60, 0.1);
+        }
+        
+        .amenity-card:before {
+            content: "";
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            background: linear-gradient(45deg, rgba(231, 76, 60, 0.05), rgba(142, 68, 173, 0.05));
+            top: -25%;
+            left: -25%;
+            transform: rotate(-5deg);
+            z-index: -1;
+            transition: transform 0.6s ease;
+        }
+        
+        .amenity-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 40px rgba(142, 68, 173, 0.2);
+        }
+        
+        .amenity-card:hover:before {
+            transform: rotate(5deg);
+        }
+        
+        .amenity-icon {
+            font-size: 50px;
+            background: linear-gradient(45deg, #e74c3c, #8e44ad);
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            box-shadow: 0 10px 20px rgba(142, 68, 173, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .amenity-card:hover .amenity-icon {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 15px 25px rgba(142, 68, 173, 0.3);
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonials:before {
+            content: "❝";
+            position: absolute;
+            font-size: 300px;
+            color: rgba(142, 68, 173, 0.05);
+            top: 0;
+            left: 5%;
+            line-height: 1;
+            z-index: 0;
+        }
+        
+        .testimonials:after {
+            content: "❞";
+            position: absolute;
+            font-size: 300px;
+            color: rgba(231, 76, 60, 0.05);
+            bottom: 0;
+            right: 5%;
+            line-height: 0;
+            z-index: 0;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 40px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 35px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(142, 68, 173, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            border-left: 5px solid transparent; /* Fallback */
+            border-image: linear-gradient(to bottom, #e74c3c, #8e44ad) 1;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(142, 68, 173, 0.2);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 25px;
+            color: #555;
+            position: relative;
+            padding: 0 15px;
+        }
+        
+        .testimonial-text:before {
+            content: "❝";
+            position: absolute;
+            left: -10px;
+            top: -15px;
+            font-size: 30px;
+            color: #e74c3c;
+            opacity: 0.5;
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+            color: #8e44ad;
+            position: relative;
+            padding-left: 20px;
+            display: inline-block;
+        }
+        
+        .testimonial-author:before {
+            content: "—"; /* Em dash */
+            position: absolute;
+            left: 0;
+            color: #e74c3c;
+        }
+        
+        /* Contact Section */
+        .contact-form {
+            max-width: 650px;
+            margin: 20px auto 0;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(142, 68, 173, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-form:before {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(231, 76, 60, 0.1), transparent);
+            top: -150px;
+            right: -150px;
+            z-index: 0;
+            border-radius: 50%;
+        }
+        
+        .contact-form:after {
+            content: "";
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(142, 68, 173, 0.1), transparent);
+            bottom: -100px;
+            left: -100px;
+            z-index: 0;
+            border-radius: 50%;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #8e44ad;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: #8e44ad;
+            box-shadow: 0 0 0 3px rgba(142, 68, 173, 0.2);
+            outline: none;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        .form-btn {
+            background: linear-gradient(to right, #e74c3c, #8e44ad);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(142, 68, 173, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            width: 100%;
+        }
+        
+        .form-btn:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, #8e44ad, #e74c3c);
+            transition: all 0.4s ease;
+            z-index: -1;
+        }
+        
+        .form-btn:hover {
+            box-shadow: 0 8px 25px rgba(142, 68, 173, 0.4);
+            transform: translateY(-3px);
+        }
+        
+        .form-btn:hover:before {
+            left: 0;
+        }
+        
+        /* Footer - Enhanced Styles */
+        footer {
+            background: linear-gradient(45deg, #530f82, #2a0a4a); /* Darker, richer purple gradient */
+            color: white;
+            padding: 70px 0 20px; /* Adjusted padding */
+            position: relative;
+            overflow: hidden;
+            margin-top: 30px;
+        }
+        
+        footer:before { /* Decorative top border - keeping user's animation */
+            content: "";
+            position: absolute;
+            top: -2px; /* Adjusted for slightly thicker look if needed */
+            left: 0;
+            width: 100%;
+            height: 10px; /* Made it slightly thinner */
+            background: linear-gradient(45deg, 
+                #ff9a9e 0%, #fad0c4 20%, 
+                #fad0c4 20%, #fbc2eb 40%, 
+                #fbc2eb 40%, #a6c1ee 60%, 
+                #a6c1ee 60%, #c2e9fb 80%, 
+                #c2e9fb 80%, #ff9a9e 100%);
+            background-size: 300% 300%; /* Slow down animation for subtlety */
+            animation: gradientWave 15s ease infinite; /* Slowed down animation */
+        }
+        
+        @keyframes gradientWave { /* User's keyframe */
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        footer:after { /* Pulse glow effect - toned down slightly */
+            content: "";
+            position: absolute;
+            width: 500px; /* Slightly smaller */
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.08), transparent 70%); /* More subtle */
+            top: -250px;
+            right: -250px;
+            border-radius: 50%;
+            animation: pulseGlow 10s ease-in-out infinite alternate; /* Slower animation */
+        }
+        
+        @keyframes pulseGlow { /* User's keyframe */
+            from { opacity: 0.2; transform: scale(0.95); }
+            to { opacity: 0.5; transform: scale(1.05); }
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjusted minmax for better spacing */
+            gap: 40px; /* Consistent gap */
+            margin-bottom: 50px; /* Increased margin before copyright */
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-column {
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.03); /* Very subtle background for columns */
+            border-radius: 12px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 3px solid transparent; /* For hover effect */
+        }
+
+        .footer-column:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+            border-left-color: #fbc2eb; /* Accent color on hover */
+        }
+
+        .footer-column h3 {
+            color: #f0e6ff; 
+            margin-bottom: 20px; /* Adjusted margin */
+            font-size: 20px; 
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-column h3:after { 
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px; /* Shorter underline */
+            height: 2px; /* Thinner underline */
+            background: linear-gradient(to right, #fbc2eb, #a6c1ee); 
+            border-radius: 1px;
+        }
+
+        .footer-column p { /* For the first column's description */
+            color: #cccccc; /* Light grey for readability */
+            font-size: 14px;
+            line-height: 1.8; /* Increased line height */
+        }
+
+        .footer-links {
+            list-style: none;
+            padding-left: 0; 
+        }
+
+        .footer-links li {
+            margin-bottom: 10px; /* Slightly reduced margin */
+        }
+
+        .footer-links a {
+            color: #d1c4e9; 
+            text-decoration: none;
+            transition: color 0.3s ease, padding-left 0.3s ease;
+            font-size: 15px; /* Slightly smaller link font */
+            position: relative;
+            display: inline-block; /* For better hover effect */
+        }
+
+        .footer-links a:hover {
+            color: #ffffff;
+            padding-left: 12px; 
+        }
+
+        .footer-links a:hover:before { 
+            content: "→"; /* Arrow icon */
+            position: absolute;
+            left: 0;
+            top: 1px;
+            color: #fbc2eb; 
+            font-weight: bold;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 18px; /* Adjusted gap */
+            margin-top: 25px; /* Increased margin */
+        }
+
+        .social-link {
+            color: #d1c4e9; /* Initial subtle color */
+            font-size: 26px; 
+            transition: color 0.3s ease, transform 0.3s ease;
+            text-decoration: none; 
+        }
+
+        .social-link:hover {
+            color: #fbc2eb; /* Bright accent on hover */
+            transform: scale(1.25) rotate(-5deg); 
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 25px; 
+            margin-top: 30px; 
+            border-top: 1px solid rgba(255, 255, 255, 0.15); /* More subtle border */
+            font-size: 13px; /* Smaller copyright text */
+            color: #b0aac0; /* Softer color for copyright */
+        }
+        
+        .copyright p {
+            margin-bottom: 0; 
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px; /* Adjusted based on typical header height */
+                left: -100%;
+                background: white;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                transition: left 0.3s ease-in-out;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .hero h1 {
+                font-size: 40px; /* Adjusted for smaller screens */
+            }
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .rooms-grid,
+            .testimonial-grid,
+            .amenities-grid { /* Added amenities grid */
+                grid-template-columns: 1fr;
+            }
+            .footer-content {
+                grid-template-columns: 1fr; /* Stack footer columns on mobile */
+                gap: 30px;
+            }
+            .footer-column {
+                padding: 20px;
+            }
+            .footer-column h3 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">Luxury Haven</a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#rooms">Rooms</a></li>
+                    <li><a href="#amenities">Amenities</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="menu-toggle">☰</div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Experience Luxury & Comfort</h1>
+                <p>Welcome to Luxury Haven Hotel, where every stay is an unforgettable experience</p>
+                <a href="#rooms" class="btn">Explore Rooms</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Our Hotel</h2>
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGx1eHVyeSUyMGhvdGVsJTIwZXh0ZXJpb3J8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=80" alt="Hotel Exterior">
+                </div>
+                <div class="about-text">
+                    <h3>A Luxurious Retreat</h3>
+                    <p>Nestled in the heart of the city, Luxury Haven Hotel offers a perfect blend of elegance, comfort, and world-class service. With our stunning architecture, spacious rooms, and exquisite dining options, we ensure that your stay with us is nothing short of extraordinary.</p>
+                    <p>Since our establishment in 2010, we have been dedicated to providing exceptional hospitality to our guests from around the world. Our attention to detail and commitment to excellence have earned us numerous accolades in the hospitality industry.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="rooms" class="rooms">
+        <div class="container">
+            <h2>Our Luxurious Rooms</h2>
+            <div class="rooms-grid">
+                <div class="room-card">
+                    <div class="room-img">
+                        <img src="https://images.unsplash.com/photo-1560200353-ce0a76b1d438?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZGVsdXhlJTIwaG90ZWwlMjByb29tfGVufDB8fDB8fHww&auto=format&fit=crop&w=400&q=80" alt="Deluxe Room">
+                    </div>
+                    <div class="room-info">
+                        <h3>Deluxe Room</h3>
+                        <div class="room-price">$150</div> <p>Spacious and elegant with modern amenities, our deluxe rooms offer comfort and style for your stay.</p>
+                        <a href="#" class="btn">Book Now</a>
+                    </div>
+                </div>
+                
+                <div class="room-card">
+                    <div class="room-img">
+                        <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZXhlY3V0aXZlJTIwc3VpdGV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=400&q=80" alt="Executive Suite">
+                    </div>
+                    <div class="room-info">
+                        <h3>Executive Suite</h3>
+                        <div class="room-price">$250</div>
+                        <p>Our executive suites feature separate living areas and premium amenities for a truly luxurious experience.</p>
+                        <a href="#" class="btn">Book Now</a>
+                    </div>
+                </div>
+                
+                <div class="room-card">
+                    <div class="room-img">
+                         <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZXhlY3V0aXZlJTIwc3VpdGV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=400&q=80" alt="Presidential Suite">
+                    </div>
+                    <div class="room-info">
+                        <h3>Presidential Suite</h3>
+                        <div class="room-price">$450</div>
+                        <p>The epitome of luxury, our presidential suite offers unparalleled comfort with breathtaking views.</p>
+                        <a href="#" class="btn">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="amenities" class="amenities">
+        <div class="container">
+            <h2>Hotel Amenities</h2>
+            <div class="amenities-grid">
+                <div class="amenity-card">
+                    <div class="amenity-icon">🏊</div>
+                    <h3>Swimming Pool</h3>
+                    <p>Take a refreshing dip in our temperature-controlled swimming pool.</p>
+                </div>
+                
+                <div class="amenity-card">
+                    <div class="amenity-icon">🍽️</div>
+                    <h3>Fine Dining</h3>
+                    <p>Experience culinary excellence at our award-winning restaurant.</p>
+                </div>
+                
+                <div class="amenity-card">
+                    <div class="amenity-icon">💆</div>
+                    <h3>Spa & Wellness</h3>
+                    <p>Rejuvenate your mind and body at our luxurious spa center.</p>
+                </div>
+                
+                <div class="amenity-card">
+                    <div class="amenity-icon">🏋️</div>
+                    <h3>Fitness Center</h3>
+                    <p>Stay fit with our state-of-the-art fitness equipment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2>Guest Testimonials</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "The service was impeccable and the rooms were absolutely stunning. Our stay at Luxury Haven was beyond expectations."
+                    </div>
+                    <div class="testimonial-author">- Sarah Johnson</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "From the moment we arrived, we were treated like royalty. The amenities are top-notch and the staff is incredibly attentive."
+                    </div>
+                    <div class="testimonial-author">- Michael Chen</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "We celebrated our anniversary here and it was truly magical. The dinner at the rooftop restaurant with city views was unforgettable."
+                    </div>
+                    <div class="testimonial-author">- David & Emma Rodriguez</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <select id="subject">
+                            <option value="booking">Booking Inquiry</option>
+                            <option value="feedback">Feedback</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" required></textarea>
+                    </div>
+                    <button type="submit" class="form-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Luxury Haven</h3>
+                    <p>Experience the perfect blend of luxury, comfort, and exceptional service at our hotel. Your unforgettable stay begins here.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" title="Facebook">📘</a>
+                        <a href="#" class="social-link" title="Instagram">📸</a>
+                        <a href="#" class="social-link" title="Twitter">🐦</a>
+                        <a href="#" class="social-link" title="LinkedIn">🔗</a> </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#rooms">Our Rooms</a></li>
+                        <li><a href="#amenities">Amenities</a></li>
+                        <li><a href="#testimonials">Guest Reviews</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><address>123 Hotel Street, Paradise City, LUX 12345</address></li>
+                        <li><a href="tel:+11234567890">Phone: +1 (123) 456-7890</a></li>
+                        <li><a href="mailto:info@luxuryhaven.com">Email: info@luxuryhaven.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Luxury Haven Hotel. All Rights Reserved. Designed with ❤️.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+        
+        // Smooth Scrolling & Close Mobile Menu
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetElement = document.querySelector(this.getAttribute('href'));
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+                
+                // Close mobile menu if open and an item is clicked
+                const navLinks = document.querySelector('.nav-links');
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
